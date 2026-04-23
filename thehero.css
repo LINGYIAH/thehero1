@@ -1,0 +1,369 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+}
+/* I found that all the parts and fonts of the website I made were too small.
+ Not knowing how to adjust them, I asked the AI for help. 
+ It told me to add these lines at the beginning to set the initial size. */
+
+/* font */
+@font-face {
+  font-family: 'Mansalva';
+  src: url('Mansalva-Regular.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+}
+
+/* HERO */
+.hero {
+  background-image: url('assets/bg-totoro.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 30px 40px;
+  gap: 30px;
+}
+
+/* inside hero */
+.hero-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* first row */
+.title-row {
+  justify-content: center;
+}
+
+/* title and ponyo */
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.title-group h1 {
+  font-family: 'Mansalva', cursive;
+  font-size: 5rem;
+  color: white;
+  text-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+.ponyo-gif {
+  width: 110px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* viedo */
+.media-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero-video {
+  width: 400px;
+  max-width: 100%;
+}
+
+.hero-video video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+/* The inserted video is too large and I don't think it looks very nice. 
+Therefore, I have set a limit on the video size. */
+@media (max-width: 768px) {
+  .media-row {
+    flex-direction: column;
+  }
+  
+  .title-group h1 {
+    font-size: 3.5rem;
+  }
+  
+  .ponyo-gif {
+    width: 90px;
+  }
+}
+
+/* sticky top */
+.navbar {
+  background-color: #1e2b36;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.navbar li {
+  margin: 0 30px;
+}
+
+.navbar a {
+  display: inline-block;
+  padding: 18px 0;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #f4d03f;
+}
+
+/* MOVIES */
+.movies-section {
+  padding: 50px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.movies-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.8rem;
+  color: #1e2b36;
+  border-bottom: 3px solid #f4d03f;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* centering the topic */
+.movies-section {
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* card */
+.card {
+  position: relative;
+  width: 300px;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* keeps image from stretching */
+  display: block;
+}
+
+/* animation effect */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+
+.card:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay h3 {
+  font-size: 1.9rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #cec081;
+  padding-bottom: 8px;
+}
+
+.overlay p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* MAESTRO */
+.maestro-section {
+  padding: 60px 20px;
+  background-color: #5cbdd5;
+}
+
+.maestro-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.8rem;
+  color: #273d4f;
+}
+
+.maestro-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* image */
+.maestro-img {
+  width: 30%;
+  max-width: 260px;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+/* the sentence */
+.quote-box {
+  width: 60%;
+  background-color: white;
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(50, 45, 45, 0.05);
+  transition: background-color 0.4s ease;
+  border-left: 8px solid #395266;
+}
+
+/* color */
+.quote-box:hover {
+  background-color: #f9e79f;
+}
+
+.quote-text {
+  font-size: 2rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  font-family: Georgia, serif;
+  color: #2a3c4a;
+}
+
+.quote-author {
+  font-size: 1.2rem;
+  text-align: right;
+  font-weight: bold;
+  color: #2a3e52;
+}
+
+/* for 768px and below, 
+This part was also informed to me by the AI,
+ which indicates that adding it will make it more suitable for the screen. */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .title-group {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .title-group h1 {
+    font-size: 3.5rem;
+  }
+
+  .ponyo-gif {
+    width: 90px;
+  }
+
+  .hero-video {
+    width: 100%;
+  }
+
+  .navbar li {
+    margin: 0 15px;
+  }
+
+  .navbar a {
+    font-size: 1.1rem;
+    padding: 14px 0;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .maestro-content {
+    flex-direction: column;
+  }
+
+  .maestro-img {
+    width: 70%;
+  }
+
+  .quote-box {
+    width: 90%;
+  }
+
+  .quote-text {
+    font-size: 1.5rem;
+  }
+}
